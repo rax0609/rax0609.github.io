@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript作業 - N*N乘法表</title>
+    <style>
+        /* 全域樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* 黑底色 */
+            color: #ffffff; /* 白字 */
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #f4f4f4;
+        }
+
+        label {
+            font-size: 18px;
+            color: #dddddd;
+        }
+
+        input[type="number"] {
+            font-size: 16px;
+            padding: 8px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            outline: none;
+            background-color: #222;
+            color: #fff; /* 白色字體 */
+            width: 200px;
+        }
+
+        input[type="number"]:focus {
+            border-color: #00bcd4;
+        }
+
+        input[type="button"] {
+            font-size: 16px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00bcd4; /* 按鈕主色 */
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #008c9e; /* 按鈕懸停色 */
+        }
+
+        /* 毛玻璃效果容器 */
+        div#myId {
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1); /* 半透明白色背景 */
+            backdrop-filter: blur(10px) saturate(150%);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 15px; /* 圓角 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* 輕微陰影 */
+        }
+
+        /* 表格樣式 */
+        table {
+            border: 1px solid #444;
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        table th {
+            background-color: #00bcd4; /* 表頭顏色 */
+            color: white;
+            padding: 10px;
+            border: 1px solid #555;
+        }
+
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #555;
+            color: #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05); /* 偶數行稍亮背景 */
+        }
+
+        table tr:hover td {
+            background-color: rgba(0, 188, 212, 0.2); /* 行懸停效果 */
+            transition: background-color 0.2s ease;
+        }
+
+        /* 頁面導航欄 */
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00bcd4;
+            font-size: 18px;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #008c9e;
+        }
+
+        /* 頁腳 */
+        footer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            const n = document.getElementById('numberInput').value;
+
+            // 檢查輸入的值是否有效
+            if (!n || n <= 0) {
+                document.getElementById("myId").innerHTML = '<p style="color: #ff4444;">請輸入一個有效的正整數！</p>';
+                return;
+            }
+
+            let str = "<table>";
+            str += "<tr>";
+            str += `<th>×</th>`;
+            for (let i = 1; i <= n; i++) {
+                str += `<th>${i}</th>`;
+            }
+            str += "</tr>";
+
+            for (let i = 1; i <= n; i++) {
+                str += "<tr>";
+                str += `<th>${i}</th>`;
+                for (let j = 1; j <= n; j++) {
+                    str += `<td>${i} × ${j} = ${i * j}</td>`;
+                }
+                str += "</tr>";
+            }
+            str += "</table>";
+
+            document.getElementById("myId").innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>動態生成 N*N 乘法表</h1>
+    <label for="numberInput">輸入一個數值:</label>
+    <input type="number" id="numberInput" placeholder="輸入一個數值" />
+    <input type="button" value="生成乘法表" title="OK" onclick="myFunction()" />
+
+    <div id="myId"></div>
+
+    <footer>
+        © 2025 乘法表生成器 | Made with ❤️
+    </footer>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "陳昱安作品集",
+  "name": "陳昱安 - 前端開發者個人作品集",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#4a89dc",
+  "background_color": "#ffffff",
+  "description": "陳昱安的個人作品集網站，展示前端開發和UI設計作品"
 }
